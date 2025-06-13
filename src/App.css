@@ -1,38 +1,227 @@
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+  min-height: 100vh;
+  color: #222;
+}
+
 .App {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem 1.5rem;
+  background: rgba(255,255,255,0.95);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(60, 72, 100, 0.12);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #1a237e;
+  margin: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button {
+  padding: 0.6rem 1.5rem;
+  background: linear-gradient(90deg, #6366f1 0%, #60a5fa 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.08);
+  transition: background 0.2s, transform 0.1s;
+}
+button:hover {
+  background: linear-gradient(90deg, #4f46e5 0%, #2563eb 100%);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.blog-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  background: #f3f6fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(60, 72, 100, 0.06);
 }
 
-.App-link {
-  color: #61dafb;
+input,
+textarea {
+  padding: 0.75rem 1rem;
+  font-size: 1.05rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 7px;
+  background: #fff;
+  transition: border 0.2s;
+  outline: none;
+}
+input:focus,
+textarea:focus {
+  border: 1.5px solid #6366f1;
+  background: #f0f4ff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+input[type="file"] {
+  padding: 0.3rem 0;
+  border: none;
+  background: none;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.post {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(60, 72, 100, 0.10);
+  text-align: left;
+  transition: box-shadow 0.2s, transform 0.1s;
+  position: relative;
+}
+.post:hover {
+  box-shadow: 0 8px 32px rgba(60, 72, 100, 0.16);
+  transform: translateY(-2px) scale(1.01);
+}
+
+.post h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.4rem;
+  color: #1a237e;
+  font-weight: 700;
+}
+
+.post p {
+  margin: 0 0 1rem 0;
+  color: #374151;
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+
+.post img {
+  margin-top: 12px;
+  max-height: 340px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(99,102,241,0.08);
+  transition: transform 0.2s;
+}
+.post img:hover {
+  transform: scale(1.03);
+}
+
+.post small {
+  display: block;
+  margin-top: 1rem;
+  color: #6b7280;
+  font-size: 0.97rem;
+}
+
+.post button {
+  margin-top: 10px;
+  background: linear-gradient(90deg, #f87171 0%, #fbbf24 100%);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0.98rem;
+  padding: 0.4rem 1.1rem;
+  box-shadow: none;
+  border: none;
+  transition: background 0.2s, transform 0.1s;
+}
+.post button:hover {
+  background: linear-gradient(90deg, #ef4444 0%, #f59e42 100%);
+  transform: scale(1.04);
+}
+/* make it responsive for mobiles */
+@media (max-width: 600px) {
+  .App {
+    padding: 1.5rem;
   }
-  to {
-    transform: rotate(360deg);
+  
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+  }
+
+  .blog-form input,
+  .blog-form textarea {
+    font-size: 1rem;
+  }
+
+  .post h3 {
+    font-size: 1.2rem;
+  }
+
+  .post p {
+    font-size: 1rem;
+  }
+  .post img {
+    max-height: 250px;
+  }
+
+  .post button {
+    width: 100%;
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 400px) {
+  .App {
+    padding: 1rem;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  button {
+    padding: 0.7rem;
+    font-size: 1rem;
+  }
+
+  .blog-form input,
+  .blog-form textarea {
+    font-size: 0.95rem;
+  }
+
+  .post h3 {
+    font-size: 1.1rem;
+  }
+
+  .post p {
+    font-size: 0.95rem;
+  }
+  .post img {
+    max-height: 200px;
+  }
+
+  .post button {
+    padding: 0.5rem;
+    font-size: 0.85rem;
   }
 }
